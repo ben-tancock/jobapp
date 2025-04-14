@@ -57,12 +57,23 @@ describe("Workers", () => {
     const data = actual.body.data;
     expect(data.length).toBe(10);
   });
+  
 
   it("GET /workers/:id", async () => {
     const actual = await request(app.getHttpServer()).get("/workers/1");
 
     expect(actual.status).toBe(200);
     expect(actual.body.data).toEqual(RESOURCE);
+  });
+
+  it("GET /workers/top-workspaces", async () => {
+    const actual = await request(app.getHttpServer()).get("/workers/invalid");
+
+    expect(JSON.parse(actual.text)).toEqual({
+      error: "Bad Request",
+      message: "test (numeric string is expected)",
+      statusCode: 400,
+    });
   });
 
   it("GET /workers/:id invalid type", async () => {

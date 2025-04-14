@@ -20,6 +20,8 @@ import { type CreateWorkplace } from "./workplaces.schemas";
 import { WorkplaceDTO } from "./workplaces.schemas";
 import { WorkplacesService } from "./workplaces.service";
 
+import { formatWorkerName } from '../../scripts/top-workplaces';
+
 @Controller("workplaces")
 export class WorkplacesController {
   constructor(private readonly service: WorkplacesService) {}
@@ -28,6 +30,16 @@ export class WorkplacesController {
   async create(@Body() data: CreateWorkplace): Promise<Response<Workplace>> {
     return { data: await this.service.create(data) };
   }
+
+  // test method to see if top-workplaces can be called
+  // 
+  @Get("/top-workplaces")
+  async getTopWorkplaces(
+  ): Promise<string> {
+    const data = await formatWorkerName("test");
+    return data;
+  }
+
 
   @Get("/:id")
   async getById(
@@ -40,6 +52,11 @@ export class WorkplacesController {
 
     return { data: omitShard(data) };
   }
+
+
+
+
+
 
   @Get()
   async get(

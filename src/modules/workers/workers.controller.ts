@@ -33,6 +33,7 @@ export class WorkersController {
   @Post()
   @UsePipes(new ZodValidationPipe(createWorkerSchema))
   async create(@Body() data: CreateWorker): Promise<Response<WorkerDTO>> {
+    
     return { data: await this.service.create(data) };
   }
 
@@ -43,7 +44,6 @@ export class WorkersController {
     @PaginationPage() page: Page,
   ): Promise<PaginatedResponse<ShiftDTO>> {
     const { data, nextPage } = await this.service.getClaims({ id, page });
-
     return {
       data: data.map(omitShard),
       links: { next: nextLink({ nextPage, request }) },
@@ -68,7 +68,7 @@ export class WorkersController {
     @PaginationPage() page: Page,
   ): Promise<PaginatedResponse<WorkerDTO>> {
     const { data, nextPage } = await this.service.get({ page });
-
+    console.log("TEST WORKERS");
     return {
       data: data.map(omitShard),
       links: { next: nextLink({ nextPage, request }) },

@@ -17,6 +17,7 @@ export class WorkplacesService {
   async getById(id: number): Promise<Workplace | null> {
     return await this.prisma.workplace.findUnique({ where: { id } });
   }
+  
 
   async get(parameters: { page: Page }): Promise<PaginatedData<Workplace>> {
     const { page } = parameters;
