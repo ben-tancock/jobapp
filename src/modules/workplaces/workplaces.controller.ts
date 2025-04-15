@@ -41,6 +41,11 @@ export class WorkplacesController {
   }
 
 
+  @Get('/stuff')
+    async getStuff() {
+    return this.service.getStuff();  // delegate to service layer
+  }
+  
   @Get("/:id")
   async getById(
     @Param("id", ParseIntPipe) id: number,
@@ -52,10 +57,6 @@ export class WorkplacesController {
 
     return { data: omitShard(data) };
   }
-
-
-
-
 
 
   @Get()

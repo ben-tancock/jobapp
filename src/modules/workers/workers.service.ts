@@ -18,6 +18,12 @@ export class WorkersService {
     return await this.prisma.worker.findUnique({ where: { id } });
   }
 
+  getStuff() {
+    // Do your logic here (e.g., fetch from DB, transform data, etc.)
+    var stuff = '';
+    return [{ id: 1, name: 'Test Worker Stuff' }];
+  }
+
   async get(parameters: { page: Page }): Promise<PaginatedData<Worker>> {
     const { page } = parameters;
 

@@ -37,6 +37,11 @@ export class WorkersController {
     return { data: await this.service.create(data) };
   }
 
+  @Get('/stuff')
+    async getStuff() {
+    return this.service.getStuff();  // delegate to service layer
+  }
+
   @Get("/claims")
   async getClaims(
     @Req() request: Request,
@@ -68,7 +73,6 @@ export class WorkersController {
     @PaginationPage() page: Page,
   ): Promise<PaginatedResponse<WorkerDTO>> {
     const { data, nextPage } = await this.service.get({ page });
-    console.log("TEST WORKERS");
     return {
       data: data.map(omitShard),
       links: { next: nextLink({ nextPage, request }) },
