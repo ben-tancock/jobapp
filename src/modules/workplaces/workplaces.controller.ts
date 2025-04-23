@@ -31,19 +31,10 @@ export class WorkplacesController {
     return { data: await this.service.create(data) };
   }
 
-  // test method to see if top-workplaces can be called
-  // 
-  @Get("/top-workplaces")
-  async getTopWorkplaces(
-  ): Promise<string> {
-    const data = await formatWorkerName("test");
-    return data;
-  }
 
-
-  @Get('/stuff')
-    async getStuff() {
-    return this.service.getStuff();  // delegate to service layer
+  @Get('/top-workplaces')
+    async getTopWorkplaces() {
+    return this.service.getTopWorkplaces();  // delegate to service layer
   }
   
   @Get("/:id")

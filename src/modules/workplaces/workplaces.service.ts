@@ -18,10 +18,20 @@ export class WorkplacesService {
     return await this.prisma.workplace.findUnique({ where: { id } });
   }
 
-  getStuff() {
+
+  //   export interface Page {
+  //   num: number;
+  //   size: number;
+  //   shard?: number;
+  // }
+
+
+  async getTopWorkplaces() {
     // Do your logic here (e.g., fetch from DB, transform data, etc.)
-    var stuff = '';
-    return [{ id: 1, name: 'Test Worker Stuff' }];
+    var myPage = { num: 1, size: 10 }; // Example page object
+    var stuff = this.get({page: myPage});
+    console.log(stuff);
+    return stuff;
   }
   
 

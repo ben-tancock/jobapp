@@ -37,11 +37,6 @@ export class WorkersController {
     return { data: await this.service.create(data) };
   }
 
-  @Get('/stuff')
-    async getStuff() {
-    return this.service.getStuff();  // delegate to service layer
-  }
-
   @Get("/claims")
   async getClaims(
     @Req() request: Request,

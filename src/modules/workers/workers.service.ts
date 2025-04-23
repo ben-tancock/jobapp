@@ -18,14 +18,22 @@ export class WorkersService {
     return await this.prisma.worker.findUnique({ where: { id } });
   }
 
-  getStuff() {
-    // Do your logic here (e.g., fetch from DB, transform data, etc.)
-    var stuff = '';
-    return [{ id: 1, name: 'Test Worker Stuff' }];
-  }
-
   async get(parameters: { page: Page }): Promise<PaginatedData<Worker>> {
     const { page } = parameters;
+
+    // when it was working the page object looked like this:
+    // {
+    //   num: 1, 
+    //   size: 100, 
+    //   shard: undefined
+    // }
+
+    // but to turn it off they changed it to this:
+    // {
+    //   num: 0, 
+    //   size: 100, 
+    //   shard: undefined
+    // }
 
     const workers = await this.prisma.worker.findMany({
       ...queryParameters({ page }),

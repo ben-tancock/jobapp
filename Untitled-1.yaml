@@ -1,0 +1,79 @@
+next interviews:
+
+GP: Act as 1 team, Champion Inclusion
+STAR Method: Situation, Task, Action, Result
+- Situation
+- Task - tasks needed to accomplish in situation
+- Action - specific actions taken in performing work
+- Result - 
+
+one team:
+- being there to answer questions, knowing seniors are burdened (Renaldo investigating, helping out Jacky)
+- prompting people for there input instead of waiting for them to speak up
+
+inclusion:
+- taking the time to help Jacky with git, noticing he was having issues with merge conflicts
+- articulate importance: software devs not always super social, I may type like a boomer sometimes...
+  - asksing PS people their opinions on things, even technical stuff is nice I think (Renaldo had opinions on stuff), keeping them in the know
+
+
+######################## Opertational and Engineering Excellence ########################
+
+Slides:
+  - code coverage: how much of your code is executed during testing
+    - decision/branch coverage: testing all possible choices (all scenarios, edge cases)
+    - statement/line coverage: % of statements in software unit that have executed at least once
+    - I have had to look at unit test, being executed in a pipe (Azure devops) and see why my PR wasn't passing the unit test
+    - the unit test used html messages to determine failure, didn't know this at the time
+  - coding standards
+  - testing automation
+  - deployment automation
+    - "At my previous job, we used Jenkins primarily to streamline and 
+    automate deployments by triggering YAML-based scripts with runtime parameters. 
+    While our usage was relatively basic, Jenkins served as a powerful tool to reduce manual steps in our deployment process."
+    - when there was an issue I had to read through logs and diagnose
+    - I used a little bit of Jenkins at Hyalto
+    - I've used Jenkins to deploy. I've also been able to look at configuration
+    - the way we used it, it basically just ran a deployment script and we could plug in variable for the script to take
+    - there were extensions and stuff, I know it can do a lot more than this
+  - have you used metrics to determine security threats or vulnerabilities (OTP, MFA)
+       - I have implemented password reset workflow (with url encryption/hashing, and for password storage too)
+  - customer insights and sentiment
+
+- unit testing?
+   - my exp w/ this is scripts that would simulate the app page, and detect html error messages and failed if they appeared
+
+
+
+
+My own brain:
+  - best practices
+  - ticket management, logging hours, release notes, etc.
+  - release notes: communicating to customers/PS team how to use new features
+  - documentation, commenting
+  - knowing your coding tools: mastering your IDE, leveraging breakpoints, CLI's, bash profiles
+  - understanding the impact your code has on other workplace processes: e.g. Property Management Tool
+  - communicating disagreements with team members
+  - rigorours testing: videos and screenshots of tests, edge cases
+  - reaching out when appropriate
+
+
+  ####################################Quality Coding#######################################
+  
+  The Slides:
+  - will the code be easy to maintain as load/traffic increases?
+  - will an engineer looking at your code for the first time be able to understand easily?
+  - ensure product stability/reliability?
+    - remember password reset workflow here and USRMST methods
+
+  
+
+
+  
+  - commenting
+  - code reviews
+  - runtime performance
+  - coding patterns: DRY (don't repeat yourself)
+  - re-usability, modularity (think your USRMST password reset methods: could be used in both the new and old user editor)
+
+
