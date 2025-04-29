@@ -29,6 +29,12 @@ export class WorkplacesController {
     return { data: await this.service.create(data) };
   }
 
+
+  @Get('/top-workplaces')
+    async getTopWorkplaces() {
+    return this.service.getTopWorkplaces();  // delegate to service layer
+  }
+
   @Get("/:id")
   async getById(
     @Param("id", ParseIntPipe) id: number,

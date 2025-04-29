@@ -5,6 +5,7 @@ import { PrismaService } from "../prisma/prisma.service";
 import { getNextPage, queryParameters } from "../shared/pagination";
 import { Page, PaginatedData } from "../shared/shared.types";
 import { CreateWorkplace } from "./workplaces.schemas";
+import { getTopWorkplacesFunction } from '../../scripts/top-workplaces';
 
 @Injectable()
 export class WorkplacesService {
@@ -17,6 +18,12 @@ export class WorkplacesService {
   async getById(id: number): Promise<Workplace | null> {
     return await this.prisma.workplace.findUnique({ where: { id } });
   }
+
+  async getTopWorkplaces() {
+    const topWorkplaces = await getTopWorkplacesFunction();
+    return topWorkplaces;
+  }
+
 
   async get(parameters: { page: Page }): Promise<PaginatedData<Workplace>> {
     const { page } = parameters;
