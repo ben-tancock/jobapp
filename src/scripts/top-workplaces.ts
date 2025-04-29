@@ -13,6 +13,12 @@ import { PrismaClient } from '@prisma/client';
 // I'm pretty sure a call like this would be called in workplaces (e.g. workplaces/top-workplaces)
 // I don't think they want a new api call added though, given this isn't a node module or anything
 
+// What I decided to do:
+// we need to coordinate across the shift and workplace modules
+// instead of having the shift functionality in the shift module and vice versa, we can just put it all here
+// and then import what we made into the workplace module
+// since this is just a one-off function, this is acceptable I think
+
 const prisma = new PrismaClient();
 
 export async function getTopWorkplacesFunction() {
